@@ -40,7 +40,7 @@ public class Controller {
         Interaction interaction = interactionService.getInteractionByInteractionId(interactionId);
         if (interaction == null) {
             logger.warn("Интеракция с id=" + interactionId + " не найдена");
-            return new ResponseEntity<>("Интеракция с id=" + interactionId + " не найдена", HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>("Интеракция с id=" + interactionId + " не найдена", HttpStatus.NOT_FOUND);
         }
         logger.info("Интеракция с id=" + interactionId + " получена");
         return ResponseEntity.ok(interactionMapper.toMessageDTO(interaction));
